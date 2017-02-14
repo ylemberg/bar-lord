@@ -6,7 +6,7 @@ var port = 1337
 var url = 'http://127.0.0.1:' + port
 const request = require('supertest')(url)
 
-describe('Bar App Server API', function () {
+xdescribe('Bar App Server API', function () {
   it('Should get a valid bar when hitting /bar/getbar/:name', function () {
     return request
       .get('/bar/getbar/yuriysbar')
