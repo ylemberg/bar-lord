@@ -126,7 +126,7 @@ class Settings extends Component {
 
         // do thing here:
         const metadata = this.getBarDataFromState()
-        this.axiosP.post('/auth/setUserMetadata', { BarInfo: metadata }).then(obj => console.log(obj))
+        axios.post('/auth/setUserMetadata', { BarInfo: metadata, headers: { authorization: `Bearer ${CustomAuth.getToken()}` } }).then(obj => console.log(obj))
 
         this.resetForm()
       }).catch(err => {
