@@ -28,6 +28,7 @@ describe('Opening A Tab Functionality', () => {
           expect(tab.dataValues.customerNum).to.be.equal(mockCustomerNum)
           expect(tab.dataValues.tableNum).to.be.a('null')
         })
+        done()
       })
   })
 

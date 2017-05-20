@@ -1,6 +1,6 @@
 # bar-lord
-Making drinking accessible
-#####[Trello Board](https://trello.com/b/qWNrrwoB/bar-lord)
+Making drinking accessible 
+##### [Trello Board](https://trello.com/b/qWNrrwoB/bar-lord)
 
 ---
 ## List of Resources
