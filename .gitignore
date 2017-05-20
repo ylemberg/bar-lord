@@ -18,3 +18,4 @@ mochawesome-reports/*
 
 ** deployment **
 app.yaml
+barambe.pem
