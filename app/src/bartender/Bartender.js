@@ -31,24 +31,34 @@ class Bartender extends Component {
   }
 
   componentDidMount() {
-    axios.get('/meta/')
-      .then(res => {
-        console.log('res.data', res.data)
+    const externalIp = 'http://ec2-54-197-9-47.compute-1.amazonaws.com/'
+    const webSocketUri = `ws://${externalIp}:3000`
+    const socket = io(webSocketUri)
+    console.log('socket is', socket)
 
-        const externalIp = res.data
-        const webSocketUri = `ws://${externalIp}:3000`
+    socket.on('neworder', order => {
+      console.log('socket message emitted', order)
+      this.props.dispatch(actions.addOrder(order))
+    })
 
-        const socket = io(webSocketUri)
+    // axios.get('/meta/')
+    //   .then(res => {
+    //     console.log('res.data', res.data)
 
-        console.log('socket is', socket)
+    //     const externalIp = res.data
+    //     const webSocketUri = `ws://${externalIp}:3000`
 
-        socket.on('neworder', order => {
-          console.log('socket message emitted', order)
-          this.props.dispatch(actions.addOrder(order))
-        })
-      }).catch(err => {
-        console.log('err in axios request', err)
-      })
+    //     const socket = io(webSocketUri)
+
+    //     console.log('socket is', socket)
+
+    //     socket.on('neworder', order => {
+    //       console.log('socket message emitted', order)
+    //       this.props.dispatch(actions.addOrder(order))
+    //     })
+    //   }).catch(err => {
+    //     console.log('err in axios request', err)
+    //   })
   }
 
   componentDidUpdate() {
