@@ -31,7 +31,7 @@ class Bartender extends Component {
   }
 
   componentDidMount() {
-    const externalIp = 'http://ec2-54-197-9-47.compute-1.amazonaws.com/'
+    const externalIp = 'http://ec2-54-197-9-47.compute-1.amazonaws.com'
     const webSocketUri = `ws://${externalIp}:3000`
     const socket = io(webSocketUri)
     console.log('socket is', socket)
