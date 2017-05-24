@@ -15,3 +15,7 @@ app/dist
 
 ** testing **
 mochawesome-reports/*
+
+** deployment **
+barambe.pem
+app.yaml
