@@ -40,25 +40,6 @@ class Bartender extends Component {
       console.log('socket message emitted', order)
       this.props.dispatch(actions.addOrder(order))
     })
-
-    // axios.get('/meta/')
-    //   .then(res => {
-    //     console.log('res.data', res.data)
-
-    //     const externalIp = res.data
-    //     const webSocketUri = `ws://${externalIp}:3000`
-
-    //     const socket = io(webSocketUri)
-
-    //     console.log('socket is', socket)
-
-    //     socket.on('neworder', order => {
-    //       console.log('socket message emitted', order)
-    //       this.props.dispatch(actions.addOrder(order))
-    //     })
-    //   }).catch(err => {
-    //     console.log('err in axios request', err)
-    //   })
   }
 
   componentDidUpdate() {
