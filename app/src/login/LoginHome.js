@@ -30,7 +30,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.progressModalPercent)
     const { auth } = this.props
     const loading = (
       <ProgressModal percent={this.props.progressModalPercent} label={this.props.progressModalPercent} />

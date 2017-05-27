@@ -33,9 +33,7 @@ class Dashboard extends Component {
   }
 
   componentDidUpdate() {
-    console.log(this.props.location.query.query)
     if (this.props.location.query.query !== undefined) {
-      console.log('xxxxxxxxxxxxx')
       this.stripe(this.props.location.query.query)
     }
   }

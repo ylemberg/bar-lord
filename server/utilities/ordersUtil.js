@@ -100,7 +100,6 @@ const createOrder = (drinkName, tabId) => {
 }
 
 const formatOrder = (order, drink) => {
-  console.log('in format order', order)
   const formattedOrder = Object.assign(order, { drink })
   return Tab.findOne({ where: { id: order.tabId } })
     .then(tab => {
@@ -120,11 +119,11 @@ const sendBartenderNewOrder = order => {
   Drink.findOne({ where: { id: order.drinkId } })
     .then(drink => formatOrder(order.dataValues, drink.dataValues))
     .then(formattedOrder => {
-      console.log('emitting formattedOrder', formattedOrder)
-      console.log('typeof socketRef', typeof socketRef)
+      // console.log('emitting formattedOrder', formattedOrder)
+      // console.log('typeof socketRef', typeof socketRef)
       socketRef.emit('neworder', formattedOrder)
-    }).catch(err => {
-      console.log('err', err)
+    }).catch(() => {
+      // console.log('err', err)
     })
 }
 

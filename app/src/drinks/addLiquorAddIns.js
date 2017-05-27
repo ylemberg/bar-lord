@@ -22,7 +22,6 @@ class AddLiquorAddIns extends Component {
 
   handleLiquorSubmit(e) {
     e.preventDefault()
-    console.log('This liquor, ', this.state.liquorName, ', costs ', this.state.liquorPrice)
 
     const temp = {
       name: this.state.liquorName,
@@ -38,12 +37,10 @@ class AddLiquorAddIns extends Component {
     this.props.submitAction(temp)
   }
   handleDelete(item) {
-    console.log('item to delete: ', item)
     this.props.deleteAction(item)
   }
   handleAddInSubmit(e) {
     e.preventDefault()
-    console.log('This add-in, ', this.state.addInName, ', costs ', this.state.addInPrice)
 
     const temp = {
       name: this.state.addInName,
@@ -64,8 +61,6 @@ class AddLiquorAddIns extends Component {
     this.setState({ liquorPrice: data.value })
   }
   handleCheckShot(event, data) {
-    console.log('event: ', event)
-    console.log('data: ', data)
     this.setState({ shotDisabled: data.checked })
   }
   handleAddInChange(event, data) {

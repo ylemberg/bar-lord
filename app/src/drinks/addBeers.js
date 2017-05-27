@@ -17,14 +17,12 @@ class AddBeers extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('Beer ', this.state.beerName, ' costs ', this.state.beerPrice)
     const temp = {
       name: this.state.beerName,
       textPrice: this.state.beerPrice,
       price: parseFloat(this.state.beerPrice) * 100,
       type: 'beer',
     }
-    console.log('Submitting this beer: ', JSON.stringify(temp))
     this.props.submitAction(temp)
     this.setState({
       beerName: '',
@@ -32,7 +30,6 @@ class AddBeers extends Component {
     })
   }
   handleDelete(beer) {
-    console.log('Beer to delete: ', beer)
     this.props.deleteAction(beer)
   }
   handleBeerChange(event, data) {

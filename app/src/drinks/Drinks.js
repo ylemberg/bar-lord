@@ -37,8 +37,8 @@ class Drinks extends Component {
         const drinksObj = { beers, cocktails, liquors, addIns }
         this.props.dispatch(actions.getDrinks(drinksObj))
       })
-      .catch(err => {
-        console.log(err)
+      .catch(() => {
+        // console.log(err)
       })
   }
 
@@ -47,23 +47,18 @@ class Drinks extends Component {
   }
 
   handleDrinkSubmit(drinkObj) {
-    console.log('submit ', JSON.stringify(drinkObj))
     axios.post('/drinks/addToMenu', drinkObj)
-      .then(res => {
-        console.log(res)
+      .then(() => {
         this.props.dispatch(actions.postDrink(drinkObj))
       })
       .catch(err => { console.log(err) })
   }
 
   handleDrinkDelete(drinkObj) {
-    console.log('delete ', JSON.stringify(drinkObj))
     axios.post('/drinks/deleteItem', drinkObj)
-      .then(res => {
-        console.log(res)
+      .then(() => {
         this.props.dispatch(actions.deleteDrink(drinkObj))
       })
-      .catch(err => { console.log(err) })
   }
 
   render() {

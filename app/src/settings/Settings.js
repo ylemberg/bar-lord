@@ -36,7 +36,6 @@ class Settings extends Component {
       displaySuccessMsg: false,
       successMessage: 'Thank you for joining Barambe. Drinks out!',
     }
-    console.log('userData: ', this.props.userData)
     this.renderMsg = this.renderMsg.bind(this)
     this.resetForm = this.resetForm.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -129,8 +128,8 @@ class Settings extends Component {
         axios.post('/auth/setUserMetadata', { BarInfo: metadata, headers: { authorization: `Bearer ${CustomAuth.getToken()}` } }).then(obj => console.log(obj))
 
         this.resetForm()
-      }).catch(err => {
-        console.log('err', err)
+      }).catch(() => {
+        // console.log('err', err)
       })
   }
 

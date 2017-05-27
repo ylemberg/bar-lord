@@ -21,7 +21,6 @@ class AddCocktails extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('Cocktail ', this.state.cocktailName, ' costs ', this.state.cocktailPrice)
     const temp = {
       name: this.state.cocktailName,
       textPrice: this.state.cocktailPrice,
@@ -39,7 +38,6 @@ class AddCocktails extends Component {
     this.props.submitAction(temp)
   }
   handleDelete(cocktail) {
-    console.log('cocktail to delete: ', cocktail)
     this.props.deleteAction(cocktail)
   }
   handleCocktailChange(event, data) {

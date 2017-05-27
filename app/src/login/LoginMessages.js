@@ -17,7 +17,6 @@ const selectMessage = {
 }
 
 const LoginMessages = props => {
-  console.log(selectMessage[props.msg])
   return (
     <div>
       {selectMessage[props.msg]}

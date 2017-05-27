@@ -20,13 +20,11 @@ export function* logIn({ email, password, auth }) {
     yield call(delay, 2000)
     const profile = yield call(auth.getProfileInfo, accessToken)
     yield put(LoginActions.profileSet(profile))
-    console.log(profile)
 
     yield call(delay, 1000)
     yield put(LoginActions.loadingComplete())
     browserHistory.push('/dashboard')
   } catch (err) {
-    console.log(err)
     yield put(LoginActions.authFailure(err))
   }
 }
@@ -42,7 +40,6 @@ export function* signUp({ email, password, auth }) {
     yield call(delay, 3000)
     yield put(LoginActions.loginRequest(email, password, auth))
   } catch (err) {
-    console.log(err)
     yield put(LoginActions.authFailure(err))
   }
 }
