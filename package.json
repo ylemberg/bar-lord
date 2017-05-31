@@ -13,7 +13,7 @@
     "test": "DB_TESTING=true mocha --reporter nyan",
     "specialStart": "nodemon ./server/server.js",
     "seed": "node db/seed/seed.js",
-    "ssh": "sudo ssh ubuntu@54.197.9.47 -i barambe.pem",
+    "ssh": "sudo ssh ubuntu@34.203.247.245 -i barambe.pem",
     "startApp": "DB_TESTING=false nodemon ./server/server.js | ./node_modules/.bin/webpack -d --watch",
     "specialStartApp": "nodemon ./server/server.js | ./node_modules/.bin/webpack -d --watch",
     "forever": "sudo forever start server/server.js"
