@@ -1,15 +1,15 @@
-const appChat = require('../appInstance')
-const server1 = require('http').Server(appChat)
-const io = require('socket.io')(server1)
+// const appChat = require('../appInstance')
+// const server1 = require('http').Server(appChat)
+// const io = require('socket.io')(server1)
 
-server1.listen(3000)
+// server1.listen(3000)
 
-let socketRef
-io.on('connection', socket => {
-  console.log(`Socket connected to user ${socket.id}`)
-  socketRef = socket
-  console.log('socketRef.handshake now is', socketRef.handshake)
-})
+// let socketRef
+// io.on('connection', socket => {
+//   console.log(`Socket connected to user ${socket.id}`)
+//   socketRef = socket
+//   console.log('socketRef.handshake now is', socketRef.handshake)
+// })
 
 const Order = require('../../db/models/orderModel')
 const Tab = require('../../db/models/tabModel')
@@ -118,11 +118,12 @@ const formatOrder = (order, drink) => {
 const sendBartenderNewOrder = order => {
   Drink.findOne({ where: { id: order.drinkId } })
     .then(drink => formatOrder(order.dataValues, drink.dataValues))
-    .then(formattedOrder => {
+    // .then(formattedOrder => {
       // console.log('emitting formattedOrder', formattedOrder)
       // console.log('typeof socketRef', typeof socketRef)
-      socketRef.emit('neworder', formattedOrder)
-    }).catch(() => {
+      // socketRef.emit('neworder', formattedOrder)
+    // })
+    .catch(() => {
       // console.log('err', err)
     })
 }
