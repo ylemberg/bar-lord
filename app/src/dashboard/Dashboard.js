@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import { browserHistory } from 'react-router'
-import { Sidebar, Segment, Menu, Icon, Grid } from 'semantic-ui-react'
+import { Sidebar, Segment, Menu, Icon, Grid, Image } from 'semantic-ui-react'
 import '../App.css'
 
 import LoginActions from '../login/duck.Login'
@@ -87,6 +87,7 @@ class Dashboard extends Component {
               <Grid.Column width={14}>
                 <Sidebar.Pusher id="height100">
                   <div id="height100">
+                    {this.props.currentNav === 'home' ? <Image src="http://i.imgur.com/mvywlbT.png" centered size="large" /> : null}
                     {this.props.currentNav === 'beer' ? <Bartender /> : null}
                     {this.props.currentNav === 'edit' ? <Drinks /> : null}
                     {this.props.currentNav === 'user' ? <Settings /> : null}
