@@ -30,17 +30,17 @@ class Bartender extends Component {
     this.getNonCompletedOrders = ::this.getNonCompletedOrders
   }
 
-  // componentDidMount() {
-  //   const externalIp = '54.197.9.47'
-  //   const webSocketUri = `ws://${externalIp}:3000`
-  //   const socket = io(webSocketUri)
-  //   console.log('socket is', socket)
+  componentDidMount() {
+    const externalIp = '54.197.9.47'
+    const webSocketUri = `ws://${externalIp}:3000`
+    const socket = io(webSocketUri)
+    console.log('socket is', socket)
 
-  //   socket.on('neworder', order => {
-  //     console.log('socket message emitted', order)
-  //     this.props.dispatch(actions.addOrder(order))
-  //   })
-  // }
+    socket.on('neworder', order => {
+      console.log('socket message emitted', order)
+      this.props.dispatch(actions.addOrder(order))
+    })
+  }
 
   componentDidUpdate() {
     this.checkIfAllOrdersDone()
